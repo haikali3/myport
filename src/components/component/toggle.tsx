@@ -7,12 +7,11 @@ import { FiMoon, FiSun } from 'react-icons/fi';
 const TOGGLE_CLASSES =
   'text-sm font-medium flex items-center gap-2 px-3 md:pl-3 md:pr-3.5 py-3 md:py-1.5 transition-colors relative z-10';
 
-const Example = () => {
-  const [selected, setSelected] = useState('light');
+const Example = ({ selected, setSelected }) => {
   return (
     <div
-      className={`grid h-[200px] place-content-center px-4 transition-colors ${
-        selected === 'light' ? 'bg-white' : 'bg-slate-900'
+      className={`grid h-[100px] place-content-center px-4 transition-colors ${
+        selected === 'light' ? 'bg-white' : 'bg-black'
       }`}
     >
       <SliderToggle selected={selected} setSelected={setSelected} />

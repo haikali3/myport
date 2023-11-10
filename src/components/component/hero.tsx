@@ -4,25 +4,44 @@
  */
 import Link from 'next/link';
 import { useState } from 'react';
+import { FiMoon, FiSun } from 'react-icons/fi';
 
-export function Hero() {
+export function Hero({ selected, setSelected }) {
   return (
     <main
       key="1"
-      className="min-h-screen bg-white flex flex-col justify-between overflow-y-auto "
+      className={`min-h-screen flex flex-col justify-between overflow-y-auto ${
+        selected === 'light' ? 'bg-white text-black' : 'bg-black text-white'
+      }`}
     >
       <div className="container mx-auto max-w-3xl">
-        <section className="w-full h-screen flex flex-col justify-center items-center bg-white">
+        <section className="w-full h-screen flex flex-col justify-center items-center">
           <div className="container px-4 md:px-6 lg:px-8 text-center h-screen pt-40">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-600">
+            <h1
+              className={`text-4xl lg:text-6xl font-bold mb-6 ${
+                selected === 'light'
+                  ? 'bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-600'
+                  : 'bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400'
+              }`}
+            >
               Welcome to Haikal Tahar's Portfolio
             </h1>
-            <p className="text-xs lg:text-lg mb-20 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-green-800 pl-8 pr-8">
+            <p
+              className={`text-xs lg:text-lg mb-20 ${
+                selected === 'light'
+                  ? 'bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-green-800 pl-8 pr-8'
+                  : 'bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-green-300 pl-8 pr-8'
+              }`}
+            >
               A creative professional with a passion for design and development.
               Explore my projects and get to know more about my work.
             </p>
             <Link
-              className="inline-block py-2 px-4 text-sm font-medium bg-gray-900 text-white rounded-md hover:bg-opacity-90"
+              className={`inline-block py-2 px-4 text-sm font-medium rounded-md hover:bg-opacity-90 ${
+                selected === 'light'
+                  ? 'bg-gray-900 text-white'
+                  : 'bg-white text-black'
+              }`}
               href="#projects"
             >
               View Projects
